@@ -1,0 +1,68 @@
+---
+# Only the main Sass file needs front matter (the dashes are enough)
+---
+@charset "utf-8";
+
+
+
+// Our variables
+$title-font-family: 'Great Vibes', cursive;
+//$base-font-family: Helvetica, Arial, sans-serif;
+$base-font-family: 'Alegreya Sans', sans-serif;
+$base-font-size:   24px;
+$title-font-size:  40px;
+$post-title-font-size: 50px;
+$small-font-size:  $base-font-size * 0.875;
+$base-line-height: 1.5;
+
+$spacing-unit:     30px;
+
+$rose-red:         #C21E56;
+$text-color:       #111;
+$background-color: #a4cfbe;
+//$brand-color:      #2a7ae2;
+$brand-color:      $rose-red;
+
+$grey-color:       #828282;
+$grey-color-light: lighten($grey-color, 40%);
+$grey-color-dark:  darken($grey-color, 25%);
+
+$separator-border: 4px double #555;
+
+// Width of the content area
+$content-width:    1000px;
+
+$on-palm:          700px;
+$on-laptop:        1000px;
+
+
+
+// Using media queries with like this:
+// @include media-query($on-palm) {
+//     .wrapper {
+//         padding-right: $spacing-unit / 2;
+//         padding-left: $spacing-unit / 2;
+//     }
+// }
+@mixin media-query($device) {
+    @media screen and (max-width: $device) {
+        @content;
+    }
+}
+
+@mixin separator() {
+	.wrapper {
+        border-bottom: $separator-border;
+        padding-bottom: 25px;
+        @include media-query($on-palm) {
+            padding-bottom: 10px;
+        }
+    }
+}
+
+// Import partials from `sass_dir` (defaults to `_sass`)
+@import
+        "base",
+        "layout",
+        "syntax-highlighting"
+;
